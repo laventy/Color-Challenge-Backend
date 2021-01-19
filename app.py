@@ -5,7 +5,7 @@ from flask_restx import Api, Resource
 from flask_cors import CORS
 
 from src.generator import ColorGenerator
-from src.config import COLOR_SPACES_DEF_PATH
+from src.config import COLOR_SPACE_DEF
 
 app = Flask(__name__)
 CORS(app)
@@ -22,8 +22,7 @@ class Colors(Resource):
     '''Shows a list of colors'''
     @ns.doc('list_colors')
     def get(self):
-        with open(COLOR_SPACES_DEF_PATH, 'r') as f:
-            return ColorGenerator(json.load(f)).generate(color_num=5)
+        return ColorGenerator(COLOR_SPACE_DEF).generate(color_num=5)
 
 
 if __name__ == '__main__':
