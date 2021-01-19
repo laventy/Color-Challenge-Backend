@@ -1,6 +1,6 @@
 import pytest
 
-from generator import ColorGenerator
+from src.generator import ColorGenerator
 from typing import List, Dict
 
 
